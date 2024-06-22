@@ -3,6 +3,7 @@ package rider
 import (
 	"assignment/model"
 	"assignment/utils"
+	"strings"
 
 	"github.com/labstack/echo/v4"
 	"github.com/spf13/viper"
@@ -26,8 +27,12 @@ func NewRiderService(config *viper.Viper, mongoClient *mongo.Client) RiderServic
 }
 
 func (r *riderService) ResgisterRider(c echo.Context, request *model.Rider) *utils.ErrorHandler {
-
-	err := model.Register(c, request, *r.mongoClient)
+	uriParts := strings.Split(c.Request().RequestURI, "/")
+	role := ""
+	if len(uriParts) > 1 {
+		role = uriParts[1]
+	}
+	err := model.Register(c, request, *r.mongoClient, role)
 	if err != nil {
 		return &utils.ErrorHandler{Message: err.Message, DevMessage: err.DevMessage}
 	}

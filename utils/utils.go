@@ -30,3 +30,10 @@ const (
 	SOMETHING_WENT_WRONG  = "Unable to process your request, please try again later"
 	DATA_NOT_FOUND        = "Data Not Found"
 )
+
+type Role string
+
+const (
+	User  Role = "user"
+	Rider Role = "rider"
+)

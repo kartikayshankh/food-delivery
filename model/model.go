@@ -1,15 +1,18 @@
 package model
 
 type User struct {
-	ID       string `json:"id" bson:"_id,omitempty"`
-	Name     string `json:"name" bson:"name"`
-	Email    string `json:"email" bson:"email"`
-	Password string `json:"password" bson:"password"`
+	ID          string `json:"id" bson:"_id,omitempty"`
+	Name        string `json:"name" bson:"name"`
+	Email       string `json:"email" bson:"email"`
+	PhoneNumber string `json:"phone_number" bson:"phone_number"`
+	Password    string `json:"password" bson:"password"`
 }
 
 type Rider struct {
 	ID          string   `json:"id" bson:"_id,omitempty"`
 	Name        string   `json:"name" bson:"name"`
+	Email       string   `json:"email" bson:"email"`
+	Password    string   `json:"password" bson:"password"`
 	PhoneNumber string   `json:"phone_number" bson:"phone_number"`
 	VehicleType string   `json:"vehicle_type" bson:"vehicle_type"`
 	Location    Location `json:"location" bson:"location"`

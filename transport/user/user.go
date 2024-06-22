@@ -23,18 +23,13 @@ func NewUserEndpoint(userService userService.UserService) UserEnpoint {
 
 func (u *userEndpoint) Register(c echo.Context) error {
 	user := new(model.User)
-
 	err := c.Bind(user)
 	if err != nil {
-		return c.JSON(http.StatusBadRequest, utils.GenericResponse{Message: "data not valid"})
+		return c.JSON(http.StatusBadRequest, &utils.GenericResponse{Message: "data not valid"})
 	}
-
 	errRegister := u.userService.Register(c, user)
 	if errRegister != nil {
-		return c.JSON(http.StatusBadRequest, utils.GenericResponse{Message: "data not valid"})
+		return c.JSON(http.StatusBadRequest, &utils.GenericResponse{Message: errRegister.Message})
 	}
-
-	return c.JSON(http.StatusCreated, utils.GenericResponse{Message: "user registered successfully"})
-
+	return c.JSON(http.StatusCreated, &utils.GenericResponse{Message: "user registered successfully"})
 }
-

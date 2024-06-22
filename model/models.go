@@ -10,21 +10,34 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-func Register(c echo.Context, request interface{}, Client mongo.Client) *utils.ErrorHandler {
-
-	collection := Client.Database("test").Collection("users")
-	_, err := collection.InsertOne(context.Background(), &request)
-	if err != nil {
-		return &utils.ErrorHandler{Message: utils.SOMETHING_WENT_WRONG, DevMessage: err.Error()}
+func Register(c echo.Context, request interface{}, Client mongo.Client, role string) *utils.ErrorHandler {
+	ctx := c.Request().Context()
+	collectionName := ""
+	switch role {
+	case string(utils.User):
+		collectionName = string(utils.User)
+	case string(utils.Rider):
+		collectionName = string(utils.Rider)
 	}
-
+	collection := Client.Database("user").Collection(collectionName)
+	_, err := collection.InsertOne(ctx, &request)
+	if err != nil {
+		// Check if the error is a duplicate key error
+		if we, ok := err.(mongo.WriteException); ok {
+			for _, e := range we.WriteErrors {
+				if e.Code == 11000 {
+					return &utils.ErrorHandler{Message: collectionName + " already exists", DevMessage: e.Message}
+				}
+			}
+		}
+		return &utils.ErrorHandler{Message: "Something went wrong", DevMessage: err.Error()}
+	}
 	return nil
-
 }
 
 func UpdateRiderLocation(c echo.Context, location Location, Client mongo.Client, filter primitive.M) *utils.ErrorHandler {
 
-	collection := Client.Database("test").Collection("riders")
+	collection := Client.Database("user").Collection("riders")
 
 	update := bson.M{"$set": bson.M{"location": location}}
 
