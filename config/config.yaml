@@ -1,0 +1,30 @@
+service:
+  name: "app"
+  port: "8083"
+  env: "stag"
+  allow_origins: "http://localhost:3000"
+
+redis:
+  host: "localhost:6379"
+  create_booking_timeout: 200
+  add_benefitPack_timeout: 200
+  voucher_timeout: 15
+
+zap:
+  level: "info"
+
+mongodb:
+  database: "staging-auth"
+  database_uri: "mongodb+srv://kartikshankh:VlykdctHu1GIv1u9@cluster0.loao0fq.mongodb.net/"
+  geo:
+    distance:
+      rider: "50000"
+  collection:
+    rider: "rider"
+    user: "user"
+    restraunt: "restraunt"
+
+jwt_secret: "jwt_secret343r1234fdsac"
+  # user: "59af8658-f484-11ed-a05b-0242ac120003"
+  # rider: "59af8658-f484-11ed-a05b-0242ac120003"
+  # restraunt: "59af8658-f484-11ed-a05b-0242ac120003"
