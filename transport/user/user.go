@@ -1,10 +1,11 @@
 package user
 
 import (
-	"assignment/model"
-	userService "assignment/service/user"
-	"assignment/utils"
 	"net/http"
+
+	"github.com/kartikayshankh/food-delivery/model"
+	userService "github.com/kartikayshankh/food-delivery/service/user"
+	"github.com/kartikayshankh/food-delivery/utils"
 
 	"github.com/labstack/echo/v4"
 )

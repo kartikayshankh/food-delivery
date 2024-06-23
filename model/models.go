@@ -1,8 +1,9 @@
 package model
 
 import (
-	"assignment/utils"
 	"context"
+
+	"github.com/kartikayshankh/food-delivery/utils"
 
 	"github.com/labstack/echo/v4"
 	"go.mongodb.org/mongo-driver/bson"

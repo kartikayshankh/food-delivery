@@ -1,16 +1,17 @@
 package main
 
 import (
-	configurations "assignment/config"
-	"assignment/db"
-	"assignment/handler"
-	"assignment/service/health"
-	restaurant "assignment/service/restaurant"
-	"assignment/service/rider"
+	configurations "github.com/kartikayshankh/food-delivery/config"
+	"github.com/kartikayshankh/food-delivery/db"
+	"github.com/kartikayshankh/food-delivery/handler"
+	"github.com/kartikayshankh/food-delivery/service/health"
+	restaurant "github.com/kartikayshankh/food-delivery/service/restaurant"
+	"github.com/kartikayshankh/food-delivery/service/rider"
 
-	"assignment/service/user"
 	"context"
 	"log"
+
+	"github.com/kartikayshankh/food-delivery/service/user"
 )
 
 func main() {

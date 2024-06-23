@@ -1,19 +1,20 @@
 package handler
 
 import (
-	healthService "assignment/service/health"
-	"assignment/service/rider"
-	healthEndpoint "assignment/transport/health"
-	restaurantEndpoint "assignment/transport/restaurant"
-	riderEndpoint "assignment/transport/rider"
-	userEndpoint "assignment/transport/user"
 	"net/http"
 	"strings"
 	"time"
 
-	customMiddleware "assignment/handler/middleware"
-	"assignment/service/restaurant"
-	"assignment/service/user"
+	healthService "github.com/kartikayshankh/food-delivery/service/health"
+	"github.com/kartikayshankh/food-delivery/service/rider"
+	healthEndpoint "github.com/kartikayshankh/food-delivery/transport/health"
+	restaurantEndpoint "github.com/kartikayshankh/food-delivery/transport/restaurant"
+	riderEndpoint "github.com/kartikayshankh/food-delivery/transport/rider"
+	userEndpoint "github.com/kartikayshankh/food-delivery/transport/user"
+
+	customMiddleware "github.com/kartikayshankh/food-delivery/handler/middleware"
+	"github.com/kartikayshankh/food-delivery/service/restaurant"
+	"github.com/kartikayshankh/food-delivery/service/user"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"

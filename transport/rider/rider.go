@@ -1,10 +1,11 @@
 package rider
 
 import (
-	"assignment/model"
-	riderService "assignment/service/rider"
-	"assignment/utils"
 	"net/http"
+
+	"github.com/kartikayshankh/food-delivery/model"
+	riderService "github.com/kartikayshankh/food-delivery/service/rider"
+	"github.com/kartikayshankh/food-delivery/utils"
 
 	"github.com/labstack/echo/v4"
 )

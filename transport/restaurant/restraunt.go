@@ -1,10 +1,11 @@
 package restaurant
 
 import (
-	"assignment/model"
-	restaurantService "assignment/service/restaurant"
-	"assignment/utils"
 	"net/http"
+
+	"github.com/kartikayshankh/food-delivery/model"
+	restaurantService "github.com/kartikayshankh/food-delivery/service/restaurant"
+	"github.com/kartikayshankh/food-delivery/utils"
 
 	"github.com/labstack/echo/v4"
 )
