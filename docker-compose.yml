@@ -13,12 +13,5 @@ services:
     expose:
       - "8081"
     ports:
-      - "8081:8081" 
-networks:
-  default:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: 10.0.0.0/24
+      - "8083:8081"
         

@@ -5,6 +5,7 @@ import (
 	"assignment/db"
 	"assignment/handler"
 	"assignment/service/health"
+	restaurant "assignment/service/restaurant"
 	"assignment/service/rider"
 
 	"assignment/service/user"
@@ -28,8 +29,9 @@ func main() {
 	healthService := health.NewService()
 	userService := user.NewUserService(config, client)
 	RiderService := rider.NewRiderService(config, client)
+	RestaurantService := restaurant.NewRestaurantService(config, client)
 
 	// Start server
-	e := handler.MakeHTTPHandler(config, healthService, userService, RiderService)
+	e := handler.MakeHTTPHandler(config, healthService, userService, RiderService, RestaurantService)
 	e.Logger.Fatal(e.Start(port))
 }
