@@ -3,7 +3,7 @@ package health
 import (
 	"net/http"
 
-	healthservice "assignment/service/health"
+	healthservice "github.com/kartikayshankh/food-delivery/service/health"
 
 	"github.com/labstack/echo/v4"
 )

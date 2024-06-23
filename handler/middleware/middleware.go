@@ -1,9 +1,10 @@
 package middleware
 
 import (
-	"assignment/config"
 	"net/http"
 	"strings"
+
+	"github.com/kartikayshankh/food-delivery/config"
 
 	"github.com/golang-jwt/jwt"
 	"github.com/labstack/echo/v4"

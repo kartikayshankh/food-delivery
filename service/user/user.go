@@ -1,8 +1,8 @@
 package user
 
 import (
-	"assignment/model"
-	"assignment/utils"
+	"github.com/kartikayshankh/food-delivery/model"
+	"github.com/kartikayshankh/food-delivery/utils"
 
 	"github.com/google/uuid"
 	"github.com/labstack/echo/v4"

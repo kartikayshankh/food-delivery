@@ -1,4 +1,4 @@
-module assignment
+module github.com/kartikayshankh/food-delivery
 
 go 1.19
 

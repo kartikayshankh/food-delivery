@@ -1,7 +1,7 @@
 package requestresponse
 
 import (
-	"assignment/model"
+	"github.com/kartikayshankh/food-delivery/model"
 )
 
 type LocationUpdate struct {
